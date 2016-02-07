@@ -2,6 +2,12 @@
 name = "github_webhook_message_validator"
 version = "0.1.0"
 authors = ["Mark S. Everitt <mark.s.everitt@gmail.com>"]
+description = "Provides functions to validating GitHub webhook payloads."
+repository = "https://github.com/qubyte/github_webhook_message_validator"
+homepage = "https://github.com/qubyte/github_webhook_message_validator"
+readme = "README.md"
+keywords = ["github", "webhook"]
+license = "MIT"
 
 [dependencies]
 rust-crypto = "0.2.34"

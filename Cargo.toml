@@ -1,8 +1,8 @@
 [package]
 name = "github_webhook_message_validator"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Mark S. Everitt <mark.s.everitt@gmail.com>"]
-description = "Provides functions to validating GitHub webhook payloads."
+description = "Provides functions for validating GitHub webhook payloads."
 repository = "https://github.com/qubyte/github_webhook_message_validator"
 homepage = "https://github.com/qubyte/github_webhook_message_validator"
 readme = "README.md"

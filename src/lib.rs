@@ -19,13 +19,10 @@ use crypto::sha1::Sha1;
 /// use github_webhook_message_validator::validate;
 ///
 /// let signature = &vec![
-///     0x73, 0x6d, 0x7f, 0x93, 0x42,
-///     0xf2, 0xa7, 0xd2, 0x39, 0xaf,
-///     0xa5, 0x51, 0x3a, 0x4b, 0xb2,
-///     0x28, 0x3e, 0x0e, 0x15, 0x88
+///     115, 109, 127, 147, 66, 242, 167, 210, 57, 175, 165, 81, 58, 75, 178, 40, 62, 14, 21, 136
 /// ];
-/// let secret = "some-secret".as_bytes();
-/// let message = "blah-blah-blah".as_bytes();
+/// let secret = b"some-secret";
+/// let message = b"blah-blah-blah";
 ///
 /// assert_eq!(validate(secret, signature, message), true);
 /// ```
@@ -47,8 +44,8 @@ mod test {
             0xa5, 0x51, 0x3a, 0x4b, 0xb2,
             0x28, 0x3e, 0x0e, 0x15, 0x88
         ];
-        let secret = "some-secret".as_bytes();
-        let message = "blah-blah-blah".as_bytes();
+        let secret = b"some-secret";
+        let message = b"blah-blah-blah";
 
         assert_eq!(validate(secret, signature, message), true);
     }
@@ -61,8 +58,8 @@ mod test {
             0x18, 0x82, 0x77, 0xc4, 0xd1,
             0x06, 0x0c, 0xb2, 0xc3, 0x73
         ];
-        let secret = "some-secret".as_bytes();
-        let message = "blah-blah-blah?".as_bytes();
+        let secret = b"some-secret";
+        let message = b"blah-blah-blah?";
 
         assert_eq!(validate(secret, signature, message), false);
     }

@@ -9,5 +9,8 @@ readme = "README.md"
 keywords = ["github", "webhook"]
 license = "MIT"
 
+[badges]
+travis-ci = { repository = "qubyte/github_webhook_message_validator" }
+
 [dependencies]
 rust-crypto = "0.2.34"

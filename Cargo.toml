@@ -1,6 +1,6 @@
 [package]
 name = "github_webhook_message_validator"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Mark S. Everitt <mark.s.everitt@gmail.com>"]
 description = "Provides functions for validating GitHub webhook payloads."
 repository = "https://github.com/qubyte/github_webhook_message_validator"

@@ -8,7 +8,7 @@ to bytes via hex. Use the `rustc_serialize` `From_Hex` trait to do this.
 
 ## Example
 
-```
+```rust
 use github_webhook_message_validator::validate;
 
 let signature = &vec![

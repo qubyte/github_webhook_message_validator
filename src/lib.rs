@@ -1,11 +1,11 @@
 //! The `github_webhook_message_validator` crate provides functions to validating GitHub webhook
 //! notifications.
 
-extern crate crypto;
+extern crate hmac;
+extern crate sha1;
 
-use crypto::hmac::Hmac;
-use crypto::mac::{Mac, MacResult};
-use crypto::sha1::Sha1;
+use hmac::{Hmac, Mac};
+use sha1::Sha1;
 
 
 /// Check a signature and a message against a shared secret.
@@ -27,9 +27,9 @@ use crypto::sha1::Sha1;
 /// assert_eq!(validate(secret, signature, message), true);
 /// ```
 pub fn validate(secret: &[u8], signature: &[u8], message: &[u8]) -> bool {
-    let mut hmac = Hmac::new(Sha1::new(), secret);
-    hmac.input(&message[..]);
-    hmac.result() == MacResult::new(&signature[..])
+    let mut hmac = Hmac::<Sha1>::new_varkey(secret).unwrap();
+    hmac.input(message);
+    hmac.verify(signature).is_ok()
 }
 
 #[cfg(test)]

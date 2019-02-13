@@ -13,4 +13,5 @@ license = "MIT"
 travis-ci = { repository = "qubyte/github_webhook_message_validator" }
 
 [dependencies]
-rust-crypto = "0.2.34"
+hmac = "0.7.0"
+sha-1 = "0.8.1"

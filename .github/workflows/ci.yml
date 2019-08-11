@@ -1,0 +1,23 @@
+name: CI
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        rust_version: [stable, beta, nightly]
+    steps:
+    - name: set rust version
+      run: rustup install ${{ matrix.rust_version }}
+    - name: checkout
+      uses: actions/checkout@master
+    - name: build
+      run: cargo build --verbose
+    - name: test
+      run: cargo test --verbose

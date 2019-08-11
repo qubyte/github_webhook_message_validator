@@ -9,7 +9,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        rust_version: [stable, beta, nightly]
     steps:
+    - name: set rust version
+      run: rustup install ${{ matrix.rust_version }}
     - name: checkout
       uses: actions/checkout@master
     - name: build

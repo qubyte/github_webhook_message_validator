@@ -2,10 +2,10 @@ name: CI
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     branches:
-    - master
+    - main
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -16,7 +16,7 @@ jobs:
     - name: set rust version
       run: rustup install ${{ matrix.rust_version }}
     - name: checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@main
     - name: build
       run: cargo build --verbose
     - name: test

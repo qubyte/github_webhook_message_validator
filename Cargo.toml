@@ -10,5 +10,5 @@ keywords = ["github", "webhook"]
 license = "MIT"
 
 [dependencies]
-hmac = "0.7.0"
-sha-1 = "0.8.1"
+hmac = "0.10.1"
+sha-1 = "0.9.1"

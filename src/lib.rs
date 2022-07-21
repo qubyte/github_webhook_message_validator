@@ -4,7 +4,7 @@
 extern crate hmac;
 extern crate sha1;
 
-use hmac::{Hmac, Mac, NewMac};
+use hmac::{Hmac, Mac};
 use sha1::Sha1;
 
 
@@ -27,10 +27,10 @@ use sha1::Sha1;
 /// assert_eq!(validate(secret, signature, message), true);
 /// ```
 pub fn validate(secret: &[u8], signature: &[u8], message: &[u8]) -> bool {
-    let mut hmac = Hmac::<Sha1>::new_varkey(secret)
+    let mut hmac = Hmac::<Sha1>::new_from_slice(secret)
         .expect("HMAC can take key of any size");
     hmac.update(message);
-    hmac.verify(signature).is_ok()
+    hmac.verify_slice(signature).is_ok()
 }
 
 #[cfg(test)]
